@@ -55,6 +55,18 @@ curl -X POST http://localhost:8080/storage-backend \
     "config": {}
   }'
 ```
+Response:
+
+```json
+{
+  "name":"memory-backend",
+  "type":"memory",
+  "config":{},
+  "is_active":true,
+  "created_at":"2025-05-23T14:33:59.118817-07:00",
+  "updated_at":"2025-05-23T14:33:59.118817-07:00"
+}
+```
 
 ### Content Management
 
@@ -99,11 +111,11 @@ curl -X PUT http://localhost:8080/content/123e4567-e89b-12d3-a456-426614174000/m
 #### Create an Object for Content
 
 ```bash
-# Create an object for content (replace storage_backend_id with the ID from your storage backend creation)
+# Create an object for content (replace storage_backend_name with the name from your storage backend creation)
 curl -X POST http://localhost:8080/content/123e4567-e89b-12d3-a456-426614174000/objects \
   -H "Content-Type: application/json" \
   -d '{
-    "storage_backend_id": "123e4567-e89b-12d3-a456-426614174001",
+    "storage_backend_name": "memory-backend",
     "version": 1
   }'
 ```
@@ -114,7 +126,7 @@ Response:
 {
   "id": "123e4567-e89b-12d3-a456-426614174002",
   "content_id": "123e4567-e89b-12d3-a456-426614174000",
-  "storage_backend_id": "123e4567-e89b-12d3-a456-426614174001",
+  "storage_backend_name": "memory-backend",
   "version": 1,
   "object_key": "123e4567-e89b-12d3-a456-426614174000/123e4567-e89b-12d3-a456-426614174002",
   "status": "pending",
