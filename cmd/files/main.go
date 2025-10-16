@@ -51,7 +51,7 @@ type S3Config struct {
 }
 
 const S3_URL_DURATION = 3600 * 6 // 6 hours
-const DEFAULT_STORAGE_BACKEND = "s3-deafult"
+const DEFAULT_STORAGE_BACKEND = "s3-default"
 
 func (c DbConfig) toDatabaseUrl() string {
 	u := url.URL{
