@@ -290,14 +290,14 @@ func (h *FilesHandler) GetFilesByContentIDs(w http.ResponseWriter, r *http.Reque
 		// Get content details
 		details, err := h.service.GetContentDetails(r.Context(), id)
 		if err != nil {
-			slog.Warn("Failed to get content details", "id", idStr)
+			slog.Warn("Failed to get content details", "id", idStr, "error", err)
 			continue
 		}
 
 		// Get the actual content for timestamps
 		content, err := h.service.GetContent(r.Context(), id)
 		if err != nil {
-			slog.Warn("Failed to get content", "id", idStr)
+			slog.Warn("Failed to get content", "id", idStr, "error", err)
 			continue
 		}
 
